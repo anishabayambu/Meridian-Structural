@@ -1,0 +1,233 @@
+<header class="site-header" [class.scrolled]="scrolled">
+  <div class="wrap header-row">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M3 21 L12 4 L21 21 M7 21 L12 11 L17 21" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+      </span>
+      Meridian&nbsp;Structural
+    </a>
+    <nav class="main-nav" [class.open]="navOpen">
+      <a href="#services" (click)="closeNav()">Services</a>
+      <a href="#work" (click)="closeNav()">Work</a>
+      <a href="#process" (click)="closeNav()">Process</a>
+      <a href="#about" (click)="closeNav()">About</a>
+      <a href="#contact" class="nav-cta" (click)="closeNav()">Start a project</a>
+    </nav>
+    <button class="nav-toggle" (click)="navOpen = !navOpen" [attr.aria-expanded]="navOpen" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="wrap hero-content">
+      <p class="eyebrow">Structural &amp; civil engineering consultancy</p>
+      <h1>
+        Buildings stand<br>
+        because the math<br>
+        <em>was checked twice.</em>
+      </h1>
+      <p class="hero-sub">
+        Meridian designs and certifies the structural systems behind schools, transit hubs
+        and mid-rise housing — from first load calculation to final inspection sign-off.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Start a project</a>
+        <a href="#work" class="btn btn-ghost">See our work</a>
+      </div>
+    </div>
+    <div class="hero-figure" aria-hidden="true">
+      <svg viewBox="0 0 420 460" class="blueprint-figure">
+        <g fill="none" stroke="currentColor" stroke-width="1">
+          <path d="M60 420 V120 L210 40 L360 120 V420" stroke-width="1.4"/>
+          <path d="M60 420 H360"/>
+          <path d="M110 420 V180 H310 V420" stroke-width="1.4"/>
+          <line x1="60" y1="180" x2="360" y2="180"/>
+          <line x1="60" y1="260" x2="360" y2="260"/>
+          <line x1="60" y1="340" x2="360" y2="340"/>
+          <line x1="160" y1="420" x2="160" y2="180"/>
+          <line x1="210" y1="420" x2="210" y2="40"/>
+          <line x1="260" y1="420" x2="260" y2="180"/>
+          <circle cx="210" cy="40" r="4" fill="currentColor" stroke="none"/>
+          <circle cx="60" cy="420" r="4" fill="currentColor" stroke="none"/>
+          <circle cx="360" cy="420" r="4" fill="currentColor" stroke="none"/>
+        </g>
+        <text x="240" y="35" class="dim-label">RIDGE +14.2m</text>
+        <text x="365" y="425" class="dim-label">GRADE 0.0</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- LOGOS / TRUST -->
+  <section class="trust">
+    <div class="wrap trust-row">
+      <span class="trust-label">Load-bearing partner on projects for</span>
+      <ul class="trust-list">
+        <li>Harrow &amp; Vance Architects</li>
+        <li>Northfield Transit Authority</li>
+        <li>Ashworth Development Group</li>
+        <li>Civic Works Partnership</li>
+        <li>Delta Housing Trust</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <div class="wrap">
+      <p class="eyebrow">What we do</p>
+      <h2>Four disciplines, one calculation</h2>
+      <div class="service-grid">
+        <article class="service-card" *ngFor="let s of services">
+          <span class="service-index">{{ s.code }}</span>
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.copy }}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" class="work">
+    <div class="wrap">
+      <p class="eyebrow">Selected work</p>
+      <h2>Standing proof</h2>
+      <div class="work-list">
+        <article class="work-row" *ngFor="let p of projects">
+          <div class="work-meta">
+            <span class="work-year">{{ p.year }}</span>
+            <span class="work-type">{{ p.type }}</span>
+          </div>
+          <h3>{{ p.name }}</h3>
+          <p>{{ p.copy }}</p>
+          <dl class="work-stats">
+            <div *ngFor="let stat of p.stats">
+              <dt>{{ stat.label }}</dt>
+              <dd>{{ stat.value }}</dd>
+            </div>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="process">
+    <div class="wrap">
+      <p class="eyebrow">How an engagement runs</p>
+      <h2>From site survey to sign-off</h2>
+      <ol class="process-list">
+        <li *ngFor="let step of processSteps; let i = index">
+          <span class="process-num">{{ i + 1 }}</span>
+          <div>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.copy }}</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ABOUT / STATS -->
+  <section id="about" class="about">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <p class="eyebrow">About Meridian</p>
+        <h2>Engineers first. Consultants second.</h2>
+        <p>
+          Founded by a team of licensed structural engineers, Meridian was built on a simple
+          premise: the firm doing the analysis should be the firm that stands behind it.
+          We carry our own professional liability on every stamped drawing, and we staff
+          projects with the same two engineers from concept through construction administration.
+        </p>
+        <p>
+          No hand-offs to junior teams mid-project. No black-box software you can't audit.
+          Just calculations you could hand to a third-party reviewer tomorrow.
+        </p>
+      </div>
+      <dl class="about-stats">
+        <div><dt>19</dt><dd>years practicing</dd></div>
+        <div><dt>140+</dt><dd>structures certified</dd></div>
+        <div><dt>0</dt><dd>failed inspections</dd></div>
+        <div><dt>6</dt><dd>licensed P.E.s on staff</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial">
+    <div class="wrap">
+      <blockquote>
+        <p>"Meridian caught a transfer-beam conflict our architect's software missed entirely —
+          three weeks before steel was due to arrive. That call alone paid for the engagement."</p>
+        <footer>
+          <span class="testimonial-name">Renata Höss</span>
+          <span class="testimonial-role">Principal, Harrow &amp; Vance Architects</span>
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-intro">
+        <p class="eyebrow">Start a project</p>
+        <h2>Tell us what you're building.</h2>
+        <p>
+          Send the basics — building type, rough scope, timeline — and one of our engineers
+          will reply within two business days with next steps.
+        </p>
+        <ul class="contact-details">
+          <li><strong>Email</strong> projects&#64;meridianstructural.com</li>
+          <li><strong>Phone</strong> +1 (555) 014-2200</li>
+          <li><strong>Office</strong> 480 Foundry Street, Suite 3, Portland, OR</li>
+        </ul>
+      </div>
+
+      <form class="contact-form" (submit)="onSubmit($event)">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+        <div class="form-row">
+          <label for="type">Project type</label>
+          <select id="type" name="type">
+            <option>New construction</option>
+            <option>Renovation / retrofit</option>
+            <option>Structural assessment</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="details">Project details</label>
+          <textarea id="details" name="details" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          {{ submitted ? 'Sent — we will be in touch' : 'Send message' }}
+        </button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <a class="brand" href="#top">Meridian&nbsp;Structural</a>
+    <p>&copy; {{ year }} Meridian Structural Engineering, PLLC. All rights reserved.</p>
+    <nav class="footer-nav">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
